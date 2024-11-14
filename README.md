@@ -13,6 +13,10 @@ O site foi feito com: HTML, CSS, Bootstrap e Javascript
 
 Editor de código utilizado: VSCode
 
+-> Antes da instalação dos comandos:
+
+É necessário que você tenha instalado o mongoDB, rodando localmente no seu computador.
+
 
 -> Passo a passo da instalação:
 
