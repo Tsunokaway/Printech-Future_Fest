@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "alert": "^6.0.2",
+    "bcrypt": "^5.1.1",
+    "chalk": "^5.3.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "method-override": "^3.0.0",
+    "mongodb": "^6.10.0",
+    "ora": "^8.1.1",
+    "prompt-sync": "^4.2.0"
+  },
+  "name": "future_fest_23",
+  "version": "1.0.0",
+  "main": "IAprintech.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node IAprintech.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
