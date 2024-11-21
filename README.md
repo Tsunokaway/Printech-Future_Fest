@@ -8,6 +8,8 @@ O site foi feito com Javascript, HTML, CSS e Bootstrap
 
 Editor de código usado: VSCode
 
+
+
 ##Descrição do Projeto:
 
 O site é sobre a produção de próteses, equipamentos médicos e sua manutenção em hospitais.
@@ -26,6 +28,7 @@ Para contribuir socialmente, queremos incluir renovações grátis para as prót
 a manutenção feita para os hospitais será um serviço nosso. As pessoas que usarem nossas próteses vão poder participar de aulas e eventos esportivos feito apenas para elas, 
 
 o evento vai incentivar a prática esportiva com próteses para que o nosso cliente mantenha sua saúde em boas condições.
+
 
 
 ##Instalação do projeto:
