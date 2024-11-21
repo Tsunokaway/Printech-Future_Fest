@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="svg" href="bookmark-heart.svg">
+    <title>Future Fest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .circulo {
+            z-index: -1;
+            position: absolute;
+            background: lightblue;
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            padding-left: 200px;
+            left: 870px;
+            top: 1650px;
+        }
+
+        .circulo2 {
+            z-index: -1;
+            position: absolute;
+            background: lightblue;
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            padding-left: 200px;
+            left: 40px;
+            top: 1650px;
+        }
+
+        .quadrado {
+            z-index: -1;
+            position: absolute;
+            left: 870px;
+            top: 1130px;
+            background: lightblue;
+            width: 230px;
+            height: 320px;
+            transform: skew(20deg);
+        }
+
+        .quadrado2 {
+            z-index: -1;
+            position: absolute;
+            left: 120px;
+            top: 1130px;
+            background: lightblue;
+            width: 230px;
+            height: 320px;
+            transform: skew(20deg);
+        }
+
+        .triangulo {
+            z-index: -1;
+            position: absolute;
+            left: 385px;
+            top: 2150px;
+            width: 0px;
+            height: 0px;
+            border-top: 80px solid transparent;
+            border-right: 160px solid lightblue;
+            border-bottom: 80px solid transparent;
+        }
+
+
+        .shadow-azul {
+            box-shadow: 0px 4px 6px rgba(0, 152, 255, 0.5), 0 4px 8px rgba(28, 179, 222, 0.24);
+        }
+
+        body {
+            background: linear-gradient(180deg, #00ACEE 0%, #FFFFFF 34.0%);
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        body.dark-mode .footer {
+            background-color: #005872;
+            color: #ffffff;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+        }
+
+        body.dark-mode .footer {
+            background-color: #005872;
+            color: #ffffff;
+        }
+
+        body.dark-mode .nav-item {
+            color: #ffffff;
+        }
+
+        body.dark-mode .card {
+            background-color: #005872;
+            color: #ffffff;
+            border-style: solid;
+            border-color: #ffffff;
+        }
+
+        body.dark-mode .offcanvas {
+            background-color: rgba(18, 18, 18, 0.9);
+            color: #ffffff;
+            border-style: solid;
+            border-color: #ffffff;
+        }
+
+        .offcanvas {
+            opacity: 0.9;
+            border-style: solid;
+            border-color: #121212;
+        }
+
+        .nav-ceu {
+            color: #00ACEE;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .card-model {
+            height: 100vh;
+            background: linear-gradient(to top,
+                    #30B5E9 0%,
+                    #30B5E9 43%,
+                    white 43%,
+                    white 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            max-width: 100%;
+            border-radius: 1px;
+            display: inline-block;
+            height: 600px;
+            margin: 1rem;
+            position: relative;
+            border-radius: 10px;
+            width: 300px;
+            color: #ffffff;
+        }
+
+        .card-shadow {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 3px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        .frame {
+            width: 1070px;
+            height: 150px;
+            z-index: -1;
+           border-radius: 5px;
+
+        }
+
+        .frame2 {
+            width: 1217px;
+            height: 906px;
+            z-index: -1;
+            position: absolute;
+         top: 1px;
+         border: solid;
+         border-color: rgb(238, 238, 238);
+
+        }
+
+          .example1 {
+            background-color: rgba(231, 231, 231, 0.1);
+            backdrop-filter: blur(3px);
+        }
+
+
+        .imgOnda {
+            width: 100%;
+            margin-top: -24%;
+            z-index: -1;
+            position: absolute;
+        }
+
+        @media (min-width: 1024px) and (max-width: 1024px) {
+            .imgOnda {
+                width: 100%;
+                margin-top: -24%;
+                z-index: -1;
+                position: absolute;
+            }
+
+            .frame {
+                width: 950px;
+                height: 240px;
+                z-index: -1;
+                border-radius: 8px;
+                margin-left: 1%;
+                margin-bottom: 6%;
+            }
+
+
+            .circulo {
+                z-index: -1;
+                position: absolute;
+                background: lightblue;
+                border-radius: 50%;
+                width: 300px;
+                height: 300px;
+                padding-left: 200px;
+
+                left: 700px;
+                top: 1400px;
+            }
+
+            .circulo2 {
+                z-index: -1;
+                position: absolute;
+                background: lightblue;
+                border-radius: 50%;
+                width: 300px;
+                height: 300px;
+                padding-left: 200px;
+
+                left: 50px;
+                top: 1400px;
+            }
+
+            .quadrado {
+                z-index: -1;
+                position: absolute;
+                left: 700px;
+                top: 940px;
+                background: lightblue;
+                width: 230px;
+                height: 320px;
+                transform: skew(20deg);
+            }
+
+            .quadrado2 {
+                z-index: -1;
+                position: absolute;
+                left: 100px;
+                top: 920px;
+                background: lightblue;
+                width: 230px;
+                height: 320px;
+                transform: skew(20deg);
+            }
+
+            .triangulo {
+                z-index: -1;
+                position: absolute;
+                left: 300px;
+                top: 1850px;
+                width: 0px;
+                height: 0px;
+                border-top: 80px solid transparent;
+                border-right: 160px solid lightblue;
+                border-bottom: 80px solid transparent;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header style="margin-right: 10%; margin-left: 10%; margin-top: 2%;">
+        <div class="quadrado"></div>
+        <div class="quadrado2"></div>
+        <div class="circulo "></div>
+
+        <nav class=" navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid mt-4" style="margin-right: 10%;">
+
+                <ul class="navbar-nav d-flex">
+
+                    <div class="me-auto p-2 ">
+                        <a href="/home"> <img src="/bookmark_heart" style="width: 5%; margin-left: 14%;"></a>
+                    </div>
+
+                    <li class="nav-item p-2">
+
+                        <a class="nav-item nav-ceu" href="/servicos"
+                            style="text-decoration: none; font-size: 22px; font-weight: lighter;">Serviço</a>
+
+                    </li>
+
+
+                    <li class="nav-item p-2" style="font-size: 21px; font-weight: lighter;">
+                        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                            aria-controls="#offcanvasRight" class="border-0 bg-transparent">
+                            <p id="mostrar-nome" class="nav-ceu ">
+
+
+
+                            </p>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+
+
+
+        <div class="fundoSobrenos container ">
+            <div class=" landing_page container " style=" margin-top: 27%; margin-bottom: 3%;">
+                <h1 class="text-center m-2 p-2 text-light" style="font-size: 440%; ">Sobre Nós</h1>
+            </div>
+        </div>
+
+
+        <div class=" offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Outras</h5>
+            </div>
+            <div class="offcanvas-body">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="theme-toggle">
+                    <label class="form-check-label" for="theme-toggle">Modo Escuro</label>
+                </div>
+                <br>
+                <h4><a href="/sair">Sair</a></h4>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="col d-flex justify-content-center">
+
+        <img src="/ondaSobrenos" alt="" class="imgOnda" style="opacity: 60%;">
+
+    </div>
+
+    <div class="frame2 example1"></div>
+    <div class="container d-flex justify-content-center" style=" margin-top: 2%;">
+        <div class="col">
+            <div class="col ">
+
+                <div class="frame example2 d-flex justify-content-center">
+                    <div class="text-center textoSobre  "
+                        style="margin-bottom: 4%; font-size: 160%; font-weight: 450; color: #FFFFFF;">
+
+                        <p class="p-2">
+                            Nosso site é um portal inovador na área da saúde, dedicado à produção de próteses e
+                            equipamentos médicos. Dedicado à produção de próteses e equipamentos médicos, temos como
+                            foco melhorar a qualidade de vida das pessoas, especialmente aquelas com deficiência.
+                            Utilizamos práticas sustentáveis e transparentes, priorizando o bem-estar de todos os
+                            stakeholders, não apenas dos acionistas.
+
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class=" landing_page container " style=" margin-top: 32%;  color: #00ACEE;">
+        <h1 class="text-center m-4 p-5" style="font-size: 300%; ">Nossa Equipe</h1>
+    </div>
+
+
+    <div class="row justify-content-around m-3 ">
+        <div class="col-4 text-center fs-4">
+            <img src="/lima-nos" style="width: 80%;" class="shadow-azul p-1 mb-1 bg-body-tertiary rounded mb-2 ">
+            <h3>Pedro Lima</h3>
+            <p>
+                Designer, designer do site, designer do figma
+            </p>
+        </div>
+        <div class="col-4 text-center fs-4">
+            <img src="/lucas-nos" style="width: 80%;" class="shadow-azul p-1 mb-1 bg-body-tertiary rounded mb-2 ">
+            <h3>Lucas Carty</h3>
+            <p>Front end, programador do site</p>
+        </div>
+    </div>
+    <div class="container text-center ">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="circulo2 "></div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-around m-3">
+        <div class="col-4 text-center fs-4">
+            <img src="/ryu-nos" style="width: 80%;" class="shadow-azul p-1 mb-1 bg-body-tertiary rounded mb-2 ">
+            <h3>Ryu Romano</h3>
+            <p>Back end, designer de ideias.</p>
+        </div>
+        <div class="col-4 text-center fs-4">
+            <img src="/gabriel-nos" style="width: 80%;" class="shadow-azul p-1 mb-1 bg-body-tertiary rounded mb-2 ">
+            <h3>Gabriel Leite</h3>
+            <p>Front end, programador do site</p>
+        </div>
+    </div>
+    <div class="container text-center ">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="triangulo"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-around m-3">
+        <div class="col-4 text-center fs-4">
+            <img src="/yasmin-nos" style="width: 80%;" class="shadow-azul p-1 mb-1 bg-body-tertiary rounded mb-2 ">
+            <h3>Yasmin Yumi</h3>
+            <p>Scrum master, back-end, designer de ideias.</p>
+        </div>
+    </div>
+
+    <div class="position-relative" style="
+    height: 150px;
+    background: linear-gradient(180deg, #FFFFFF 20%, #51BCE6 100%);">
+    </div>
+    <footer class="p-4 footer" style="margin-top: 0px; background-color: #00ACEE; z-index: 1;">
+        <div class=" g-4 container d-flex justify-content-between" style="margin-top: 10px; margin-bottom: 10px;">
+
+            <div>
+                <a href="/home"> <img src="/logo_branco" style="width: 7%;"></a>
+            </div>
+
+            <form action="/servicos" method="GET">
+                <a class="nav-item" href="/servicos"
+                    style="text-decoration: none; margin-right: 80px; color: #ffffff; font-size: 22px;">Serviços</a>
+            </form>
+
+
+            <form action="/sobrenos" method="GET">
+                <a class="nav-item" href="/sobrenos"
+                    style="text-decoration: none; margin-right: 80px; color: #ffffff; font-size: 22px;">Sobre</a>
+            </form>
+
+        </div>
+        <div class="d-flex justify-content-end">
+            <p style="margin-right: 80px; color: #ffffff;">&copy; 2024 logo. todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleSwitch = document.getElementById('theme-toggle');
+            const isDarkMode = localStorage.getItem('dark-mode') === 'true';
+
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                toggleSwitch.checked = true;
+            }
+
+            toggleSwitch.addEventListener('change', function () {
+                if (toggleSwitch.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('dark-mode', 'true');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('dark-mode', 'false')
+                }
+            })
+        })
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/usuarios')
+                .then(response => response.json())
+                .then(usuarios => {
+                    const editar = document.getElementById('mostrar-nome');
+                    editar.innerHTML = usuarios.map(usuario => `
+                ${usuario.usuario}
+                        `).join('');
+                })
+                .catch(error => console.error('Erro ao carregar avaliacoes:', error));
+        });
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

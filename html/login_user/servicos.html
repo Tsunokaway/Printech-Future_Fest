@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="svg" href="bookmark-heart.svg">
+    <title>Future Fest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        body {
+            background: linear-gradient(180deg, #00ACEE 0%, #FFFFFF 36.0%);
+        }
+
+        body.dark-mode {
+            background: linear-gradient(180deg, #004F67 0%, #121212 50.0%);
+            color: #ffffff;
+        }
+
+        .pé {
+            background: linear-gradient(180deg, #FFFFFF 0%, #00ACEE 50.0%);
+
+        }
+
+        body.dark-mode .pé {
+            background: linear-gradient(180deg, #121212 0%, #004F67 50.0%);
+        }
+
+        body.dark-mode .footer {
+            background-color: #005872;
+            color: #ffffff;
+        }
+
+        body.dark-mode .footer {
+            background-color: #005872;
+            color: #ffffff;
+        }
+
+        body.dark-mode .nav-item {
+            color: #ffffff;
+        }
+
+        body.dark-mode .card {
+            background-color: #005872;
+            color: #ffffff;
+            border-style: solid;
+            border-color: #ffffff;
+        }
+
+        body.dark-mode .offcanvas {
+            background-color: rgba(18, 18, 18, 0.9);
+            color: #ffffff;
+            border-style: solid;
+            border-color: #ffffff;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+        }
+
+        .offcanvas {
+            opacity: 0.9;
+            border-style: solid;
+            border-color: #121212;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body.dark-mode input {
+            background-color: #ffffff;
+            color: white;
+
+
+        }
+
+        body.dark-mode textarea {
+            background-color: #ffffff;
+            color: white;
+        }
+
+        input {
+            background-color: #EAEAEA;
+
+        }
+
+        textarea {
+            background-color: #EAEBEB;
+            padding: 18px;
+            width: 160%;
+
+        }
+
+        input[type=text] {
+            height: 55%;
+            width: 177.5%;
+            padding: 16px;
+            resize: vertical;
+        }
+
+        button[type=submit] {
+            background-color: #00ACEE;
+            color: #00ACEE;
+            color: white;
+            cursor: pointer;
+            width: 151%;
+        }
+
+        button[type=submit]:hover {
+            background-color: #0D6EC9;
+            color: #FFFFFF;
+        }
+
+        .nav-ceu {
+            color: #00ACEE;
+        }
+
+
+        .card-model {
+            height: 100vh;
+            background: linear-gradient(to top,
+                    #30B5E9 0%,
+                    #30B5E9 43%,
+                    white 43%,
+                    white 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            max-width: 100%;
+            border-radius: 1px;
+            display: inline-block;
+            height: 600px;
+            margin: 1rem;
+            position: relative;
+            border-radius: 10px;
+            width: 300px;
+            color: #ffffff;
+        }
+
+
+        .card-modelInfo {
+            height: 100vh;
+            background: linear-gradient(to top,
+
+                    white 43%,
+                    white 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            max-width: 100%;
+            border-radius: 2px;
+            display: inline-block;
+            height: 475px;
+            margin: 1rem;
+            position: relative;
+            border-radius: 10px;
+            width: 300px;
+
+        }
+
+        .card-modelPedidos {
+
+            background: linear-gradient(to top,
+
+                    white 43%,
+                    white 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            max-width: 100%;
+            border-radius: 2px;
+            display: inline-block;
+
+            margin: 1rem;
+            position: relative;
+            border-radius: 10px;
+            width: 300px;
+
+        }
+
+        .card-shadow {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 3px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        .card-shadowInfo {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 3px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        .card-shadowPedidos {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 3px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+
+        .card-shadow:hover {
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
+
+        .carossel {
+            width: 700px;
+            height: 400px;
+            margin: 25px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .slides {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 100%;
+            height: fit-content;
+        }
+
+        .slide {
+            width: 100%;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            background: #eee;
+        }
+
+        .slide:nth-child(2n) {
+            background: #ddd;
+        }
+
+        .frame {
+            width: 1070px;
+            height: 150px;
+            z-index: -1;
+           border-radius: 5px;
+
+        }
+
+        .frame2 {
+            width: 1217px;
+            height: 806px;
+            z-index: -1;
+            position: absolute;
+         top: 1px;
+     
+       
+
+        }
+
+          .example1 {
+            background-color: rgba(231, 231, 231, 0.1);
+            backdrop-filter: blur(3px);
+        }
+
+     
+
+   
+        .linha {
+            margin-bottom: 10%;
+            width: 142%;
+            margin-left: 11.2%;
+        }
+
+        .caixaEmail {
+            margin-left: 73%;
+            padding-bottom: 12%;
+            border-radius: 5px;
+            border-color: #EDEEF2;
+        }
+
+
+        .cardInfo {
+            margin-right: -45%;
+        }
+
+        @media (min-width: 1024px) and (max-width: 1024px) {
+
+            .card-modelInfo {
+                height: 100vh;
+                background: linear-gradient(to top,
+
+                        white 43%,
+                        white 100%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                max-width: 100%;
+                border-radius: 2px;
+                display: inline-block;
+                height: 475px;
+                margin: 1rem;
+                position: relative;
+                border-radius: 10px;
+                width: 300px;
+
+            }
+
+
+            textarea {
+                background-color: #EAEBEB;
+                padding: 18px;
+                width: 130%;
+
+            }
+
+            input[type=text] {
+                height: 55%;
+                width: 140%;
+                resize: vertical;
+            }
+
+            button[type=submit] {
+                background-color: #00ACEE;
+                color: #00ACEE;
+                color: white;
+                cursor: pointer;
+                width: 123%;
+            }
+
+            .linha {
+                margin-bottom: 10%;
+                width: 115%;
+                margin-left: 11.2%;
+            }
+
+
+            .caixaEmail {
+                margin-left: 43%;
+                padding-bottom: 12%;
+                border-radius: 5px;
+                border-color: #EDEEF2;
+            }
+
+
+            .frame {
+                width: 900px;
+                height: 170px;
+                z-index: -1;
+                border-radius: 5px;
+
+            }
+
+            .navbar {
+                background-color: #ffffff;
+                padding-right: 100px;
+            }
+
+            .footer {
+                width: 96%;
+            }
+
+
+            .footcor {
+
+                width: 96%;
+            }
+
+
+
+            .cardInfo {
+                margin-right: -13%;
+            }
+
+
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header style="margin-right: 10%; margin-left: 10%; margin-top: 2%;">
+        <nav class=" navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid mt-4" style="margin-right: 10%;">
+
+                <ul class="navbar-nav d-flex">
+
+                    <div class="me-auto p-2 ">
+                        <a href="/home"> <img src="/bookmark_heart" style="width: 5%; margin-left: 14%;"></a>
+                    </div>
+
+
+                    <li class="nav-item p-2">
+
+                        <a class="nav-item nav-ceu" href="/sobrenos"
+                            style="text-decoration: none; font-size: 22px; font-weight: lighter;">Sobre
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item p-2" style="font-size: 21px; font-weight: lighter;">
+                        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                            aria-controls="#offcanvasRight" class="border-0 bg-transparent">
+                            <p id="mostrar-nome" class="nav-ceu ">
+
+
+                            </p>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+        <div class=" landing_page container " style=" margin-top: 27%; margin-bottom: 7%;">
+            <h1 class="text-center m-2 p-1 text-light" style="font-size: 440%; ">Serviço</h1>
+        </div>
+
+
+
+        <div class=" offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Outras</h5>
+            </div>
+            <div class="offcanvas-body">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="theme-toggle">
+                    <label class="form-check-label" for="theme-toggle">Modo Escuro</label>
+                </div>
+                <br>
+                <h4><a href="/sair">Sair</a></h4>
+            </div>
+        </div>
+    </header>
+
+    <div class="col">
+
+        <img src="/quadrados_3D" alt="" style="margin-top: -15%; width: 33%; z-index: -1; position: absolute; opacity: 55%;">
+
+    </div>
+
+
+    <div class="frame2 example1"></div>
+
+
+
+    <div class="page_two container  d-flex justify-content-center " style="margin-top: 2%;">
+
+        <div class="row">
+            <div class="col ">
+
+                <div class=" frame example2  d-flex justify-content-center">
+                    <div class="text-center  "
+                        style="margin-bottom: 4%; font-size: 160%; font-weight: 450; color: #FFFFFF;">
+
+                        <p class="p-2">
+                            Produzimos próteses e equipamentos médicos com materiais sustentáveis, utilizando resíduos
+                            plásticos reciclados e impressão 3D. Oferecemos renovações gratuitas de próteses em parceria
+                            com
+                            hospitais e realizamos manutenção proativa dos equipamentos médicos.
+
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="page_models container-fluid " style="margin-top: 31%; margin-bottom: 8%;">
+        <div class="como_funciona_title text-center" style="color: #00ACEE; margin-bottom: 16px;">
+            <h1>Próteses</h1>
+        </div>
+        <div class="images_models row d-flex justify-content-center">
+            <div class="card card-model card-shadow " style="width: 20rem; " class="rounded">
+                <img src="/protese_braco" class="card-img-top p-2  card-bg-img"
+                    style="height: 60%; border-radius: 20px; margin-top: 5%; " alt="...">
+                <div class="card-body">
+                    <p class="card-text" style="font-weight: 495; font-size: 108%;">As próteses de coração são
+                        dispositivos
+                        mecânicos
+                        projetados para
+                        ajudar ou
+                        substituir a função do coração em pacientes com insuficiência cardíaca grave.</p>
+                </div>
+            </div>
+            <div class="card card-shadow card-model " style="width: 20rem;" class="rounded">
+                <img src="/protese_coracao" class="card-img-top p-2 card-bg-img"
+                    style="height: 60%;  border-radius: 20px; margin-top: 5%;" alt="...">
+                <div class="card-body">
+                    <p class="card-text" style="font-weight: 495; font-size: 108%;">Elas podem ser
+                        utilizadas como uma solução temporária enquanto o paciente aguarda um transplante ou como
+                        tratamento de longo prazo.</p>
+                </div>
+            </div>
+            <div class="card card-model card-shadow" style="width: 20rem;" class="rounded">
+                <img src="/protese_dente" class="card-img-top p-2"
+                    style="height: 60%;  border-radius: 20px; margin-top: 5%;" alt="...">
+                <div class="card-body">
+                    <p class="card-text" style="font-weight: 495; font-size: 108%;">O implante de mandíbula é uma
+                        solução cirúrgica que visa restaurar a função e a
+                        estética bucal de pessoas que sofreram perdas significativas na mandíbula.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="container  d-flex justify-content-start" style="margin-top: 5%;">
+        <form action="/criar-pedidos" method="post">
+            <input type="hidden" id="id" name="id">
+
+            <div class="container justify-content-center">
+
+                <div class=" row">
+
+                    <div class="col">
+
+                        <div class="solicitar_produto_title text-start"
+                            style="color: #00ACEE; margin-bottom: 7%; margin-left: 11%;">
+                            <h1 style="font-size: 48px;">Solicitar Produto</h1>
+                        </div>
+
+
+                        <div class="container-fluid border linha ">
+
+                        </div>
+
+
+                        <div class="container" style="margin-left: 5%;">
+
+
+
+                            <div class="container d-flex justify-content-start"
+                                style="margin-bottom: 5%; margin-left: -2.8%;">
+
+                                <div class="container">
+                                    <input type="text" id="usuario" name="usuario" placeholder="NOME" class="border-0 "
+                                        required
+                                        style="  padding-bottom: 12%; border-radius: 5px; border-color: #EDEEF2;"></br></br>
+
+                                </div>
+
+
+                                <div class="container ">
+                                    <input type="text" class=" border-0 caixaEmail" id="email" name="email"
+                                        placeholder="E-MAIL" class="border-0 " required></br></br>
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="container">
+                                <textarea class=" border-0 " id="desc" name="desc" placeholder="DESCRIÇÃO" style=" padding-bottom: 32%;
+                     margin-top: -11%;  border-radius: 5px;"></textarea></br></br>
+                            </div>
+
+                        </div>
+
+                        <div class="container" style="margin-right: 10%; margin-left: 7%;">
+                            <div class="adicionar_button  text-center" style=" margin-bottom: 6%;">
+                                <button type="submit" class="container-fluid btn btn-block p-2"
+                                    style="font-weight: 640; border-radius: 35px;">Enviar</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+
+                        <div class="page_models container-fluid cardInfo ">
+                            <div class="images_models row d-flex justify-content-around">
+                                <div class="card card-modelInfo card-shadowInfo" style="width: 20rem; " class="rounded">
+                                    <div class="card-body">
+                                        <p class="card-text"
+                                            style="margin-bottom: 3%; font-size: 15px; font-weight: 700;  color: #595959;">
+                                            PRINTECH</p>
+                                        <p class="card-text" style="font-weight: 500; color: #6D6D6D;">Av. Lins de
+                                            Vasconcelos</p>
+                                        <p class="card-text" style="font-weight: 500; color: #6D6D6D;">São Paulo -
+                                            SP
+                                        </p>
+                                        <p class="card-text" style="font-weight: 500; color: #6D6D6D;">
+                                            <strong style=" color: #434343;">Telefone:</strong>
+                                            11 99394-2733
+                                        </p>
+                                        <p class=" card-text" style="font-weight: 500; color: #6D6D6D;">
+                                            <strong style=" color: #434343;">E-mail:</strong> printech@bcorp.com.br
+                                        </p>
+
+                                        <img src="/localizacao" alt="." style=" border-radius: 5px;" width="100%">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+    <div class="page_models container-fluid " style=" margin-top: 5%;">
+        <div class="images_models row d-flex justify-content-around">
+            <div class="card card-modelPedidos card-shadowPedidos" style="width: 50rem; " class="rounded">
+                <div class="card-body">
+                    <p class="card-text"
+                        style="margin-bottom: 1%; margin-left: 4%; font-size: 29px; font-weight: 600;  color: #00ACEE;">
+                        Seus Pedidos:</p>
+
+                    <div class="carossel">
+                        <div class="slides">
+                            <div id="mostrar-pedido">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="position-relative footcor" style="
+    height: 150px;
+    background: linear-gradient(180deg, #FFFFFF 20%, #51BCE6 100%);">
+    </div>
+
+    <footer class="p-4 footer" style=" background-color: #00ACEE; ">
+        <div class=" g-4 container d-flex justify-content-between" style="margin-top: 50px; margin-bottom: 10px;">
+
+            <div>
+                <a href="/home"> <img src="/logo_branco" style="width: 7%;"></a>
+            </div>
+
+            <form action="/servicos" method="GET">
+                <a class="nav-item" href="/servicos"
+                    style="text-decoration: none; margin-right: 80px; color: #ffffff; font-size: 22px;">Serviços</a>
+            </form>
+
+
+            <form action="/sobrenos" method="GET">
+                <a class="nav-item" href="/sobrenos"
+                    style="text-decoration: none; margin-right: 80px; color: #ffffff; font-size: 22px;">Sobre</a>
+            </form>
+
+        </div>
+        <div class="d-flex justify-content-end">
+            <p style="margin-right: 80px; color: #ffffff;">&copy; 2024 logo. todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+
+
+
+    <script>
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleSwitch = document.getElementById('theme-toggle');
+            const isDarkMode = localStorage.getItem('dark-mode') === 'true';
+
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                toggleSwitch.checked = true;
+            }
+
+            toggleSwitch.addEventListener('change', function () {
+                if (toggleSwitch.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('dark-mode', 'true');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('dark-mode', 'false')
+                }
+            })
+        })
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/pedidos')
+                .then(response => response.json())
+                .then(pedidos => {
+                    const editar = document.getElementById('mostrar-pedido');
+                    editar.innerHTML = pedidos.map(pedido => `
+           
+                    <div class="container" style="border: solid; border-color: #BCBCBC; border-width: 2px; border-radius: 5px">
+                            <p class=" card-text" style="font-weight: 500; color: #6D6D6D; font-size:15px; margin-top:2%;">
+                                            <strong style=" color: #434343;">Nome:</strong> ${pedido.usuario} 
+                                        </p>
+
+                                        <p class=" card-text" style="font-weight: 500; color: #6D6D6D; font-size:15px; margin-top:2%;">
+                                            <strong style=" color: #434343;">Descrição:</strong> ${pedido.desc}
+                                        </p>
+                      
+                        
+                        
+                        <div class=" btn-group btn-group-sm" role="group" style="margin-bottom:3%; margin-top:2%">
+                            <form action="/deletar-pedido" method="post"
+                                onsubmit="return confirm('Tem certeza que deseja excluir este pedido ?');" style="display:inline;">
+                                <input type="hidden" name="id" value="${pedido._id}">
+                                <button type="submit" class="btn btn-primary">Deletar</button>
+                            </form>
+                        </div>
+                    </div>`).join('');
+                })
+                .catch(error => console.error('Erro ao carregar avaliacoes:', error));
+        });
+
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/usuarios')
+                .then(response => response.json())
+                .then(usuarios => {
+                    const editar = document.getElementById('mostrar-nome');
+                    editar.innerHTML = usuarios.map(usuario => `
+                ${usuario.usuario}
+                        `).join('');
+                })
+                .catch(error => console.error('Erro ao carregar avaliacoes:', error));
+        });
+
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

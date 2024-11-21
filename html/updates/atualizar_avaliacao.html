@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="svg" href="bookmark-heart.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Future fest</title>
+</head>
+<style>
+    textarea {
+        width: 80%;
+        height: 140px;
+        padding: 8px;
+        border: 1px solid #00ACEE;
+        border-radius: 2px;
+        resize: none;
+        overflow: hidden;
+    }
+</style>
+
+<body>
+    <header style="margin-right: 10%; margin-left: 10%;">
+        <nav class="navbar navbar-expand-sm ">
+            <div class="container-fluid mt-4" style="margin-right: 10%;">
+
+                <ul class="navbar-nav d-flex">
+
+                    <div class="me-auto ">
+                        <a href="/home"> <img src="/bookmark_heart" style="width: 8%; margin-left: 14%;"></a>
+                    </div>
+                    <li class="nav-item p-2">
+
+                        <a class="nav-item nav-ceu" href="/servicos"
+                            style="text-decoration: none; font-size: 22px; font-weight: lighter; color: #00ACEE;">Serviço</a>
+
+                    </li>
+                    <li class="nav-item p-2">
+
+                        <a class="nav-item nav-ceu" href="/sobrenos"
+                            style="text-decoration: none; font-size: 22px; font-weight: lighter; color: #00ACEE;">Sobre
+                        </a>
+
+                    </li>
+                    <ul>
+            </div>
+        </nav>
+        <hr class="text-dark">
+    </header>
+
+
+
+
+    <div class="containerAvaliacao">
+
+        <div class="col">
+
+            <img src="/bolas1" alt="" style=" margin-bottom: -12%;" width="12%">
+
+        </div>
+
+        <h2 class="text-center" style="margin-bottom: 30px; margin-top: 35px; font-size: 40px; color:#00ACEE">
+            Atualizar avaliação
+        </h2>
+
+
+
+        <div class="text-center" style="margin-bottom: 20px;">
+            <form action="/atualizar-avaliacao" method="POST">
+                <div class="container">
+                    <input type="hidden" name="id" value="id" id="id">
+
+                    <div class="container" id="recomendado">
+                        <input type="radio" name="recomendacao" id="recomendacao" value=" Positiva" checked="checked"
+                            onclick="pegarValor()"><img src="/upvote_azul" alt="upvote" width="6%">
+
+                        <img src="/downvote" alt="downvote" width="6%">
+                        <input type="radio" name="recomendacao" id="recomendacao" value=" Negativa"
+                            style="margin-bottom: 4%;" onclick="pegarValor()">
+                    </div>
+
+
+                    <div class=" row" style="margin-right: 3%;">
+
+                        <div class="col-25">
+                            <textarea id="desc_avaliacao" name="desc_avaliacao" placeholder="Descrição da avaliação.."
+                                style="margin-right: 16%; margin-left: 130px;" onkeyup="autoGrow(this);"></textarea>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" style="margin-right: 12%; margin-left: 12%; margin-bottom: 4%;">
+                        <input type="submit" value="Enviar"
+                            style="color: white; background-color: #00ACEE; border: #3DC9F3;">
+                    </div>
+
+                </div>
+
+
+
+
+                <br>
+
+        </div>
+    </div>
+
+    <footer class="p-4 footer" style="margin-top: 120px; background-color: #00ACEE; ">
+        <div class=" g-4 container d-flex justify-content-between" style="margin-top: 50px; margin-bottom: 10px;">
+
+            <div>
+                <a href="/home"> <img src="/logo_branco" style="width: 7%;"></a>
+            </div>
+
+            <form action="/servicos" method="GET">
+                <a class="nav-item" href="/servicos"
+                    style="text-decoration: none; margin-right: 80px; color: #ffffff; font-size: 22px;">Serviços</a>
+            </form>
+
+
+            <form action="/sobrenos" method="GET">
+                <a class="nav-item" href="/sobrenos"
+                    style="text-decoration: none; margin-right: 80px; color: #ffffff; font-size: 22px;">Sobre</a>
+            </form>
+
+        </div>
+        <div class="d-flex justify-content-end">
+            <p style="margin-right: 80px; color: #ffffff;">&copy; 2024 logo. todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const avaliacaoId = urlParams.get('id');
+
+            if (avaliacaoId) {
+                fetch(`/avaliacao/${avaliacaoId}`)
+                    .then(response => response.json())
+                    .then(avaliacao => {
+
+                        document.getElementById('id').value = avaliacao._id;
+
+                        document.getElementById('desc_avaliacao').value = avaliacao.desc_avaliacao;
+
+                    })
+                    .catch(error => console.error('Erro ao carregar dados da avaliação:', error));
+            }
+        });</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

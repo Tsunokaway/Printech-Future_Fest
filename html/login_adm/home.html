@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="svg" href="bookmark-heart.svg">
+    <link rel="website icon" type="svg" href="list.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Future fest</title>
+    <style>
+        body.dark-mode {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        body.dark-mode .footer {
+            background-color: #005872;
+            color: #ffffff;
+        }
+
+        body.dark-mode .footer {
+            background-color: #005872;
+            color: #ffffff;
+        }
+
+        .nav-ceu {
+            color: #00ACEE;
+        }
+
+        body.dark-mode .nav-item {
+            color: #ffffff;
+        }
+
+        body.dark-mode .card {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+
+        body.dark-mode .offcanvas {
+            background-color: rgba(18, 18, 18, 0.9);
+            color: #ffffff;
+            border-style: solid;
+            border-color: #ffffff;
+        }
+
+        .offcanvas {
+            opacity: 0.9;
+
+            border-color: #000000;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .instrument-sans {
+            font-family: "Instrument Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: bold;
+            font-style: normal;
+            font-variation-settings: "width" 700;
+        }
+
+        .work-sans-titulo {
+            font-family: "Work Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        .work-sans-subTitulo {
+            font-family: "Work Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 650;
+            font-style: normal;
+        }
+
+        .usuario {
+            color: #00ACEE;
+        }
+
+        .Titulo {
+            color: #FFFAFD;
+
+        }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            background-color: #00ACEE;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+        input[type=submit]:hover {
+            background-color: #0D6EC9;
+        }
+
+        .containerAvaliacao {
+            border-radius: 5px;
+            background-color: #ffffff;
+            padding: 20px;
+
+            border-color: #00ACEE;
+            border-width: 10px;
+        }
+
+        body.dark-mode .containerAvaliacao {
+            border-radius: 5px;
+            background-color: #2B2B2B;
+            padding: 20px;
+            border-style: solid;
+            border-color: #F5F5F5;
+        }
+
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+            margin-left: 7%;
+        }
+
+
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+        }
+
+        .row::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+
+        .card-modelAvaliacoes {
+
+            background: linear-gradient(to top,
+
+                    white 43%,
+                    white 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            max-width: 100%;
+            border-radius: 2px;
+            display: inline-block;
+
+            margin: 1rem;
+            position: relative;
+            border-radius: 10px;
+            width: 300px;
+
+        }
+
+        .card-shadowAvaliacoes {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 3px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+
+
+        @media screen and (max-width: 600px) {
+
+            .col-25,
+            .col-75,
+            input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+
+
+        .navbar {
+            background-color: #ffffff;
+        }
+
+        body.dark-mode .navbar {
+            background-color: #000000
+        }
+
+
+        .card-shadow {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 3px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+
+
+        }
+
+        .input[type="submit"] {
+            display: block;
+            margin-top: 1rem;
+        }
+
+        .bg-home {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            background-size: cover;
+        }
+
+        .frame {
+            width: 540px;
+            height: 1816px;
+            padding: 10px;
+            z-index: -1;
+            position: absolute;
+        }
+
+        .example1 {
+            background-color: rgb(38, 38, 38, 0.1);
+            backdrop-filter: blur(23px);
+        }
+
+        .element {
+            position: absolute;
+            z-index: -6;
+            animation:
+
+                nudge 11s linear infinite alternate;
+            border-radius: 100%;
+        }
+
+        @keyframes nudge {
+
+            50% {
+                transform: translate(0, -25px);
+            }
+
+            50% {
+                transform: translate(0, 40px);
+            }
+        }
+
+
+
+        .element2 {
+            position: absolute;
+            z-index: -6;
+
+            animation:
+
+                nudge2 11s linear infinite alternate;
+            border-radius: 100%;
+
+
+
+        }
+
+
+        @keyframes nudge2 {
+
+            50% {
+                transform: translate(0, 40px);
+            }
+
+            50% {
+                transform: translate(0, -25px);
+            }
+        }
+
+
+        .animaBola {
+            position: absolute;
+
+            animation:
+
+                nudgeb 6s linear infinite alternate;
+
+
+
+
+        }
+
+        @keyframes nudgeb {
+
+            50% {
+                transform: translate(0, 40px);
+            }
+
+            50% {
+                transform: translate(0, -5px);
+            }
+        }
+
+
+        .carossel {
+            width: 700px;
+            height: 400px;
+            margin: 25px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .slides {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 100%;
+            height: fit-content;
+        }
+
+        .slide {
+            width: 100%;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            background: #eee;
+        }
+
+        .slide:nth-child(2n) {
+            background: #ddd;
+        }
+    </style>
+
+
+</head>
+
+
+
+
+
+<body>
+
+    <div class="bg-home"> <video autoplay loop muted
+            style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; position: absolute; ">
+            <source src="/bgvideo7" type="video/mp4">
+        </video>
+
+        <div class="frame example1">
+            <h4 class="text"></h4>
+        </div>
+    </div>
+
+
+    <header style="margin-right: 10%; margin-left: 10%;">
+        <nav class=" navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid mt-4" style="margin-right: 10%;">
+
+                <ul class="navbar-nav d-flex">
+
+                    <div class="me-auto p-2 ">
+                        <a href="/home"> <img src="/bookmark_heart" style="width: 5%; margin-left: 14%;"></a>
+                    </div>
+
+                    <li class="nav-item p-2">
+
+                        <a class="nav-item nav-ceu" href="/servicos_adm"
+                            style="text-decoration: none; font-size: 22px; font-weight: lighter;">Serviço</a>
+
+                    </li>
+
+
+                    <li class="nav-item p-2" style="font-size: 21px; font-weight: lighter;">
+                        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                            aria-controls="#offcanvasRight" class="border-0 bg-transparent">
+                            <p id="mostrar-nome" class="nav-ceu ">
+
+
+
+                            </p>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+        <div class=" offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Outras</h5>
+            </div>
+            <div class="offcanvas-body">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="theme-toggle">
+                    <label class="form-check-label" for="theme-toggle" style="margin-top: -20%;">Modo Escuro</label>
+                </div>
+                <h4><a href="/sair">Sair</a></h4>
+            </div>
+        </div>
+
+    </header>
+
+
+
+
+    <div class=" container home ">
+        <div class=" container" style="margin-top: 18%; ">
+
+
+            <div class="row">
+                <div class="col" style=" margin-left: 5%; margin-top: 10%;">
+                    <h1 class=" work-sans-titulo  text-start Titulo" style="font-size: 740%;">
+                        Bem<br>
+                        Vindo
+
+                    </h1>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <div class="page_two container " style="margin-top: 31%;">
+
+            <div class="col d-flex justify-content-start">
+
+                <img src="/bolas5" alt="bolas5" width="8%" style="margin-bottom:-12%;">
+
+            </div>
+
+            <div class="col d-flex justify-content-end">
+                <img src="/bolas3" alt="bolas5" width="8%">
+
+            </div>
+
+
+            <div class=" o_que_buscamos_paragraph text-center d-flex justify-content-center">
+                <p style="font-size: 320%; font-weight: 300;  width: 980px; color: #00ACEE;">
+                    NÓS GARANTIMOS O SEU FUTURO
+                </p>
+            </div>
+
+            <div class="col ">
+
+                <img src="/bolas3" alt="." width="8%" style="margin-bottom: 11%; margin-top: 2%;">
+
+            </div>
+
+            <div class="col  d-flex justify-content-end">
+
+                <img src="/bolas5" alt="bolas5" width="8%" style="margin-top:-41%;">
+
+            </div>
+
+
+
+
+
+
+
+            <div class="col" style="margin-bottom: 10%; ">
+
+                <div class="o_que_buscamos_title text-center blockquote " style="color: #00ACEE; margin-bottom: 3%;">
+                    <h2 class="display-4 blockquote" style="font-size: 240%;">3D Printing e Seu Impacto
+                        na
+                        Área de
+                        Sáude
+                    </h2>
+                </div>
+                <div class=" o_que_buscamos_paragraph text-center d-flex justify-content-center">
+                    <p style="font-size: 155%; font-weight: 450;  width: 1100px;">
+                        Somos uma empresa inovadora dedicada à produção de próteses e equipamentos médicos,
+                        utilizando materiais sustentáveis, como resíduos plásticos reciclados. Nossa missão é
+                        impactar positivamente a saúde, oferecendo soluções personalizadas por meio de impressão
+                        3D.
+
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container">
+        <form action="/avaliacao/:recomendacao">
+        </form>
+    </div>
+
+
+
+
+    <div class="element position-absolute d-flex justify-content-start"> <img src="/ondaHome2" alt="ondaHome"
+            style=" margin-top: -12%; z-index: -5; width: 48%;">
+    </div>
+
+
+    <div class="d-flex justify-content-center imgHome" style="margin-top: 6%; "> <img src="/forma3D2" alt="."
+            style="border-radius: 8px;" width="57%">
+    </div>
+
+
+
+    <div class="element2 position-absolute d-flex justify-content-end"> <img src="/ondaHome" alt="ondaHome"
+            style="margin-top: -30%;   z-index: -5; width: 48%;">
+    </div>
+
+
+
+
+
+
+
+    <div class="container" style="margin-bottom: 9%; margin-top: 17%;">
+
+
+        <div class="container text-center">
+            <div class="row justify-content-around">
+
+                <div class="col">
+                    <div class="p-1">
+                        <img src="/b-corp" alt="b-corp" style="width: 88%; border-radius: 8px;">
+                    </div>
+                </div>
+
+
+                <div class="col" style="margin-top: 3%;">
+                    <div class=" p-1">
+
+                        <div class="o_que_buscamos_title text-start blockquote "
+                            style="color: #00ACEE; margin-bottom: 3%;">
+                            <h2 class="display-4 blockquote" style="font-size: 135%; ">O que buscamos
+                                sendo uma B-corp
+
+                            </h2>
+                        </div>
+                        <div class="text-start">
+                            <h4 style="font-weight: 420; font-size: 140%; width: 470px; ">
+                                O nosso foco é impactar a área da saúde, com nossos serviços que produzem resultados
+                                com
+                                o
+                                foco
+                                na qualidade, acessibilidade, conforto e cuidado com nossos clientes , queremos
+                                fazer
+                                isso
+                                de
+                                maneira sustentável e portanto ter um impacto socialmente positivo.
+
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class=" d-flex justify-content-start"> <img src="/ondaHome3" alt="ondaHome3" style="width: 100%; z-index: -6;">
+    </div>
+
+
+
+
+
+
+
+    <div class="page_models container-fluid " style="margin-top: 4%;">
+        <div class="images_models row d-flex justify-content-center">
+            <h3 class="text-center" style="margin-bottom: 1%; font-size: 49px; font-weight: 400;  color: #00ACEE;">
+                Avaliações</h3>
+            <div class="card card-modelAvaliacoes card-shadowAvaliacoes" style="width: 50rem; " class="rounded">
+                <div class="card-body">
+                    <div>
+                        <p>Avaliações </p>
+                        <div id="IAprintech">
+                        </div>
+                    </div>
+
+                    <p class="card-text"
+                        style="margin-bottom: 1%; margin-left: 4%; font-size: 29px; font-weight: 600;  color: #00ACEE;">
+                        Todas Avaliações:</p>
+                    <div class="carossel">
+                        <div class="slides">
+
+                            <div id="avaliacoes-editar">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <footer class="p-4 footer" style="margin-top: 100px; background-color: #00ACEE; ">
+        <div class=" g-4 container d-flex justify-content-between" style="margin-top: 50px; margin-bottom: 10px;">
+
+            <div>
+                <a href="/home"> <img src="/logo_branco" style="width: 7%;"></a>
+            </div>
+
+            <form action="/servicos" method="GET">
+                <a class="nav-item" href="/servicos"
+                    style="text-decoration: none; margin-right: 80px; color: #ffffff; font-size: 22px;">Serviços</a>
+            </form>
+
+
+        </div>
+        <div class="d-flex justify-content-end">
+            <p style="margin-right: 80px; color: #ffffff;">&copy; 2024 logo. todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+
+    <script>
+        //Exibir usuário usuarioExistente
+
+
+
+
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/avaliacoes')
+                .then(response => response.json())
+                .then(avaliacoes => {
+                    const editar = document.getElementById('avaliacoes-editar');
+                    editar.innerHTML = avaliacoes.map(avaliacao => `
+                
+                    
+                    <div class="container card-shadow" style="border: solid; border-color: #BCBCBC; border-width: 2px; border-radius: 5px; margin:10px; margin-left:-0.06%;">
+                            <p class=" card-text" style="font-weight: 500; color: #6D6D6D; font-size:15px; margin-top:2%;">
+                                            <strong style=" color: #434343;">Recomendação:</strong><br> ${avaliacao.recomendacao}
+                                        </p>
+
+                                        <p class=" card-text" style="font-weight: 500; color: #6D6D6D; font-size:15px; margin-top:2%;">
+                                            <strong style=" color: #434343;">Descrição:</strong><br>${avaliacao.desc_avaliacao}
+                                        </p>
+
+
+                                        <a href="/atualizar-avaliacao?id=${avaliacao._id}" class="btn btn-primary " style="margin-bottom:3%">Atualizar</a>
+                                <form action="/deletar-avaliacao" method="post" onsubmit="return confirm('Tem certeza que deseja excluir esta avaliação?');" style="display:inline;">
+                                    <input type="hidden" name="id" value="${avaliacao._id}">
+                                    <button type="submit" class="btn btn-danger" style="margin-bottom:3%">Deletar</button>
+                                </form>
+    
+                    </div>
+                        `).join('');
+                })
+                .catch(error => console.error('Erro ao carregar avaliacoes:', error));
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/usuarios')
+                .then(response => response.json())
+                .then(usuarios => {
+                    const editar = document.getElementById('mostrar-nome');
+                    editar.innerHTML = usuarios.map(usuario => `
+                ${usuario.usuario}
+                        `).join('');
+                })
+                .catch(error => console.error('Erro ao carregar avaliacoes:', error));
+        });
+
+        /*
+ 
+            <div class="btn-group btn-group-sm " role="group">
+ 
+                                <a href="/atualizar-avaliacao?id=${avaliacao._id}" class="btn btn-warning">Atualizar</a>
+                                <form action="/deletar-avaliacao" method="post"
+                                    onsubmit="return confirm('Tem certeza que deseja excluir esta avaliação ?');"
+                                    style="display:inline;">
+                                    <input type="hidden" name="id" value="${avaliacao._id}">
+                                    <button type="submit" class="btn btn-danger">Deletar</button>
+                                </form>
+                            </div>
+ 
+           <div class="card">
+                <div class="card-body">
+                        <h5 class="card-title">${pedido.nome_pedido}</h5>
+                        <p class="card-text">${pedido.email} </p>
+                        <p class="card-text">${pedido.desc}</p>
+                        <a href="/atualizar?id=${pedido._id}" class="btn btn-warning">Atualizar</a>
+                        <form action="/deletar-pedido" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este pedido?');" style="display:inline;">
+                            <input type="hidden" name="id" value="${paciente._id}">
+                            <button type="submit" class="btn btn-danger">Deletar</button>
+                        </form>
+                    </div>
+            </div>
+            `;
+ 
+        */
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleSwitch = document.getElementById('theme-toggle');
+            const isDarkMode = localStorage.getItem('dark-mode') === 'true';
+
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                toggleSwitch.checked = true;
+            }
+
+            toggleSwitch.addEventListener('change', function () {
+                if (toggleSwitch.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('dark-mode', 'true');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('dark-mode', 'false')
+                }
+            })
+        })
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+
+    <script src="IAprintech.js"></script>
+</body>
+
+</html>
