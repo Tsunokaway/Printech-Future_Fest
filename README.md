@@ -1,3 +1,5 @@
+Grupo: Gabriel Leite, Lucas Carty, Ryu Romano e Yasmin Yumi
+
 Nome do projeto: Printech
 
 No nosso site tem as funcionalidade de deletar, adicionar, atualizar e buscar. Além disso temos a API do Google Gemini funcionando em nosso site! 
