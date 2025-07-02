@@ -53,7 +53,7 @@ const avaliacao = await colecao.find({}, {
 
 const MODEL_NAME = 'gemini-1.0-pro';
 
-const API_KEY = 'AIzaSyD1iLvwcd67DavBBunrZp2oB5sEW6wBoqw';
+const API_KEY = 'SUA_CHAVE_API';
 
 const GENERATION_CONFIG = {
     temperature: 0.1,
