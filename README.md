@@ -1,6 +1,5 @@
 Grupo: Gabriel Leite, Lucas Carty, Ryu Romano e Yasmin Yumi
-
-Nome do projeto: Printech
+# Printech🦾
 
 No nosso site tem as funcionalidade de deletar, adicionar, atualizar e buscar. Além disso temos a API do Google Gemini funcionando em nosso site! 
 
@@ -12,7 +11,7 @@ Editor de código usado: VSCode
 
 
 
-##Descrição do Projeto:
+## Descrição do Projeto:
 
 O site é sobre a produção de próteses, equipamentos médicos e sua manutenção em hospitais.
 Dentro deste tema, o nosso foco é impactar a área da saúde, com nossos serviços que produzem resultados com o foco na qualidade, acessibilidade, conforto e cuidado com nossos clientes , 
@@ -27,7 +26,7 @@ o evento vai incentivar a prática esportiva com próteses para que o nosso clie
 
 
 
-##Instalação do projeto:
+## Instalação do projeto:
 
 É necessário que o banco de dados MongoDB esteja instalado em sua máquina.
 
@@ -51,7 +50,8 @@ Comando para iniciar o projeto:
 
 node server.cjs
 
-Logo em seguida clique o no link, apertando o "Ctrl" + clique do mouse, e pronto, você poderá navegar pelo site e descobrir mais sobre nós!
+
+- Logo em seguida clique o no link, apertando o "Ctrl" + clique do mouse, e pronto, você poderá navegar pelo site e descobrir mais sobre nós!
 
 
 
